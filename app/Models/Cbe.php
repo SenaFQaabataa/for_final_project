@@ -8,13 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Cbe extends Model
 {
     use HasFactory;
-    //Relationship
+    //Relationship with student_list
     public function student_list(){
         return $this->hasMany(student_list::class,'cbe_id');
     }
+    //Relationship with the user
     public function user(){
         return $this->hasMany(user::class,'id');
     }
+    //Relationship with college
     public function college (){
         return $this->hasMany(College::class,'coll_id');
     }

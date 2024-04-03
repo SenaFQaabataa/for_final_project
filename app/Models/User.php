@@ -41,4 +41,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    //Relationship with CBE
+    public function cbe(){
+        return $this->belongsTo(Cbe::class,'id');
+    }
+    //Relationshiop with Student
+    public function student(){
+        return $this->hasMany(student::class,'id');
+    }
 }
