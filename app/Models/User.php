@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Cbe;
+use App\Models\Student;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -42,11 +44,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     //Relationship with CBE
-    public function cbe(){
-        return $this->belongsTo(Cbe::class,'id');
+    public function Cbe(){
+        return $this->belongsTo(Cbe::class);
     }
     //Relationshiop with Student
-    public function student(){
-        return $this->hasMany(student::class,'id');
+    public function Student(){
+        return $this->hasOne(Student::class);
+    }
+    public function Supervisor(){
+        return $this->hasOne(Supervisor::class);
+    }
+    public function Institution(){
+        return $this->belongsTo(Institution::class);
     }
 }

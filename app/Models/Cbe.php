@@ -10,14 +10,14 @@ class Cbe extends Model
     use HasFactory;
     //Relationship with student_list
     public function student_list(){
-        return $this->hasMany(student_list::class,'cbe_id');
+        return $this->hasMany(student_list::class);
     }
     //Relationship with the user
     public function user(){
-        return $this->hasMany(user::class,'id');
+        return $this->hasMany(user::class);
     }
     //Relationship with college
     public function college (){
-        return $this->hasMany(College::class,'coll_id');
+        return $this->hasOne(College::class);
     }
 }
