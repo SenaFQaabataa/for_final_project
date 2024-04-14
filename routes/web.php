@@ -17,11 +17,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
+Route::get('/student', function (){
+    return view('student.student');
+});
 
+Route::get('/cbe', function (){
+    return view('cbe.cbe');
+});
 
-Route::get('users/login',[UserController::class, 'login']);
+Route::get('/login',[UserController::class, 'login'])->name('login')->middleware('guest');
+
 
 Route::post('users/authenticate',[UserController::class, 'authenticate']);

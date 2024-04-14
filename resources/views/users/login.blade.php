@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">  --}}
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('dist/css/adminlte.css')}}">
+  <style>
+
+  </style>
 </head>
 <body class="hold-transition login-page ">
 <div class="login-box">
@@ -23,10 +26,9 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Login to start your session</p>
 
-      <form method="post" action="users/authenticate" >
-        @csrf
+      <form action="../../index3.html" method="post">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email">
           <div class="input-group-append">
@@ -48,15 +50,11 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="  btn btn-primary btn-block">Login</button>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
-    </div>
-    <!-- /.login-card-body -->
-  </div>
-</div>
 <!-- /.login-box -->
 
 <!-- jQuery -->
