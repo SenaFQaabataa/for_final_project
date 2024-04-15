@@ -46,6 +46,8 @@ Route::prefix('cbe')->group(function () {
         Route::get('/delete/{department}', [DepartmentController::class, 'destroy'])->name('cbe.department.delete');
     });
 });
+/** CBE Routes End */
+
 
 Route::get('/student', function (){
     return view('student.student');
