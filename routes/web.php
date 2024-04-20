@@ -4,6 +4,7 @@ use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
 
 
@@ -48,13 +49,43 @@ Route::prefix('cbe')->group(function () {
 });
 /** CBE Routes End */
 
+/** Department Route Start */
+Route::middleware(['auth', 'user-access:department'])->group(function () {
+    Route::prefix('/department')->group(function (){
+        Route::get('/home', [DashboardController::class, 'departmentIndex'])->name('department.home');
 
-Route::get('/student', function (){
-    return view('student.student');
+        Route::get('/student/list', [DepartmentController::class, 'studentIndex'])->name('department.student.index');
+        Route::get('/student/add', [DepartmentController::class, 'studentCreate'])->name('department.student.add');
+        Route::get('/student/edit/{id}', [DepartmentController::class, 'studentEdit'])->name('department.student.edit');
+        Route::post('/student/update', [DepartmentController::class, 'studentUpdate'])->name('department.student.update');
+        Route::post('/student/destroy/{id}', [DepartmentController::class, 'studentDestroy'])->name('department.student.destroy');
+        Route::post('/student/store', [DepartmentController::class, 'studentStore'])->name('department.student.store');
+        Route::get('/student/download/{file}', [DepartmentController::class, 'studentListDownload'])->name('department.download.studentlist');
+
+    });
 });
+/** Department Route End */
 
+/** Supervisor Route Start */
+Route::middleware(['auth', 'user-access:supervisor'])->group(function () {
+    Route::prefix('/supervisor')->group(function (){
+        Route::get('/home', [DashboardController::class, 'supervisorIndex'])->name('supervisor.home');
+    });
+});
+/** Supervisor Route End */
 
-// Route::get('/login',[UserController::class, 'login'])->name('login')->middleware('guest');
+/** Institution Route Start */
+Route::middleware(['auth', 'user-access:institution'])->group(function () {
+    Route::prefix('/institution')->group(function (){
+        Route::get('/home', [DashboardController::class, 'institutionIndex'])->name('institution.home');
+    });
+});
+/** Institution Route End */
 
-
-// Route::post('users/authenticate',[UserController::class, 'authenticate']);
+/** Student Route Start */
+Route::middleware(['auth', 'user-access:student'])->group(function () {
+    Route::prefix('/student')->group(function (){
+        Route::get('/home', [DashboardController::class, 'studentIndex'])->name('student.home');
+    });
+});
+/** Student Route End */

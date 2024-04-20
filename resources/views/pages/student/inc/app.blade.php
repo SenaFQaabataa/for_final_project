@@ -10,7 +10,7 @@
 
         @include('layout.navigation')
 
-        @include('pages.cbe.inc.aside')
+        @include('pages.student.inc.aside')
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">

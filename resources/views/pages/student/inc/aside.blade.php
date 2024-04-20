@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-        <span class="brand-text font-weight-light">CBE Dashboard</span>
+        <span class="brand-text font-weight-light">Student Dashboard</span>
     </a>
 
     <!-- Sidebar -->
@@ -13,7 +13,7 @@
                 <img src="{{ asset('assets/dist/img/user.jpg')}}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{ Auth::user()?->getName() ?? 'Name Here' }}</a>
+                <a href="#" class="d-block">{{ Auth::user()?->email ?? 'Name Here' }}</a>
             </div>
         </div>
 

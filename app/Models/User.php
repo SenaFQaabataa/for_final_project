@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class User extends Authenticatable
 {
@@ -20,9 +21,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
         'email',
         'password',
+        'email_verified_at',
+        'last_login',
+        'type',
+        'avatar'
     ];
 
     /**
@@ -56,5 +60,12 @@ class User extends Authenticatable
     }
     public function Institution(){
         return $this->belongsTo(Institution::class);
+    }
+
+    protected function type(): Attribute
+    {
+        return new Attribute(
+            get: fn($value) => ["student", "cbe", "department", "supervisor", "institution"][$value],
+        );
     }
 }

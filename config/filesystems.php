@@ -30,6 +30,13 @@ return [
 
     'disks' => [
 
+        'sena' => [
+            'driver' => 'local',
+            'root' => public_path(),
+            'visibility' => 'public',
+            'url' => env('APP_URL').'',
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),

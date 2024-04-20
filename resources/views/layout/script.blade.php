@@ -102,6 +102,13 @@
                 time: 'far fa-clock'
             }
         });
+
+        @if (session('error'))
+            Toast.fire({
+                icon: 'error',
+                title: {!! "'" . session('error') . "'" !!}
+            })
+        @endif
     });
 </script>
 
