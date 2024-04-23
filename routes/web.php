@@ -27,24 +27,25 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 /** CBE Routes Start */
-// TO DO: implement => middleware(['auth', 'user-access:admin']) on all grouped routes
-Route::prefix('cbe')->group(function () {
-    Route::get('/home', function (){
-        return view('pages.cbe.home');
-    })->name('cbe.home');
+Route::middleware(['auth', 'user-access:cbe'])->group(function () {
+    Route::prefix('cbe')->group(function () {
+        Route::get('/home', function (){
+            return view('pages.cbe.home');
+        })->name('cbe.home');
 
-    Route::prefix('/department')->group(function (){
-        Route::get('/add', [DepartmentController::class, 'create'])->name('cbe.department.add');
-        Route::post('/add', [DepartmentController::class, 'store'])->name('cbe.department.store');
-        Route::get('/list', function (){
-            return view('pages.cbe.department.list');
-        })->name('cbe.department.list');
-        Route::get('/view/{department}', function (){
-            return view('pages.cbe.department.view');
-        })->name('cbe.department.view');
-        Route::get('/edit/{department}', [DepartmentController::class, 'edit'])->name('cbe.department.edit');
-        Route::post('/update/{department}', [DepartmentController::class, 'update'])->name('cbe.department.update');
-        Route::get('/delete/{department}', [DepartmentController::class, 'destroy'])->name('cbe.department.delete');
+        Route::prefix('/department')->group(function (){
+            Route::get('/add', [DepartmentController::class, 'create'])->name('cbe.department.add');
+            Route::post('/add', [DepartmentController::class, 'store'])->name('cbe.department.store');
+            Route::get('/list', function (){
+                return view('pages.cbe.department.list');
+            })->name('cbe.department.list');
+            Route::get('/view/{department}', function (){
+                return view('pages.cbe.department.view');
+            })->name('cbe.department.view');
+            Route::get('/edit/{department}', [DepartmentController::class, 'edit'])->name('cbe.department.edit');
+            Route::post('/update/{department}', [DepartmentController::class, 'update'])->name('cbe.department.update');
+            Route::get('/delete/{department}', [DepartmentController::class, 'destroy'])->name('cbe.department.delete');
+        });
     });
 });
 /** CBE Routes End */
