@@ -38,7 +38,23 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-item {{ (request()->is('ssamplelink*')) ? 'menu-open' : '' }}">
+                <li class="nav-item">
+                    <a href="{{ route('student.notice-board') }}" class="nav-link {{ (request()->is('student/notice-board*')) ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-briefcase"></i>
+                        <p>
+                            Notice Board
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('student.training.list') }}" class="nav-link {{ (request()->is('student/training*')) ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-list-alt"></i>
+                        <p>
+                            My Trainings
+                        </p>
+                    </a>
+                </li>
+                {{-- <li class="nav-item {{ (request()->is('ssamplelink*')) ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ (request()->is('samplelink*')) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
@@ -60,15 +76,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link {{ (request()->is('samplelink*')) ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-briefcase"></i>
-                        <p>
-                            Colleges
-                        </p>
-                    </a>
-                </li>
+                </li> --}}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

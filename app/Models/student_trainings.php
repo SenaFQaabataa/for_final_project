@@ -10,7 +10,10 @@ class student_trainings extends Model
     use HasFactory;
     //Relationship with supervisor
     public function Supervisor(){
-        return $this->belongsTo(Supervisor::class);
+        return $this->belongsTo(Supervisor::class, 'id');
+    }
+    public function Institution(){
+        return $this->belongsTo(Institution::class);
     }
     public function Supervisor_assesment(){
         return $this->belongsToMany(Supervisor_assesment::class);
@@ -20,7 +23,7 @@ class student_trainings extends Model
         return $this->belongsToMany(Institution_assesment::class);
     }
     public function Training_types(){
-        return $this->hasOne(Training_types::class);
+        return $this->hasOne(training_types::class, 'id');
     }
     public function Student_training_responses()
     {

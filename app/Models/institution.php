@@ -11,7 +11,11 @@ class institution extends Model
     public function Institution_assesment(){
         return $this->hasMany(Institution_assesment::class);
     }
-    public function User(){
-        return $this->hasOne(User::class);
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function institutionPlace(){
+        return $this->hasOne(InstitutionPlace::class, 'id');
     }
 }

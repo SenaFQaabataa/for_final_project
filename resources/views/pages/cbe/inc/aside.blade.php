@@ -40,7 +40,7 @@
                 </li>
                 <li class="nav-item {{ (request()->is('ssamplelink*')) ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ (request()->is('samplelink*')) ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-sitemap"></i>
                         <p>
                             Departments
                             <i class="right fas fa-angle-left"></i>
@@ -49,25 +49,92 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="" class="nav-link {{ (request()->is('samplelink')) ? 'active' : '' }}">
-                                <i class="fas fa-plus nav-icon"></i>
+                                <i class="fas fa-caret-right nav-icon"></i>
                                 <p>Add Department</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link {{ (request()->is('samplelink') || request()->is('school/department/view*') || request()->is('school/department/edit*')) ? 'active' : '' }}">
-                                <i class="fas fa-list nav-icon"></i>
+                                <i class="fas fa-caret-right nav-icon"></i>
                                 <p>Departments List</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link {{ (request()->is('samplelink*')) ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-briefcase"></i>
+                <li class="nav-item {{ (request()->is('cbe/students*')) ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ (request()->is('cbe/students*')) ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-graduation-cap"></i>
                         <p>
-                            Colleges
+                            Students
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('cbe.students.list') }}" class="nav-link {{ (request()->is('cbe/students/list')) || (request()->is('cbe/students/list*')) ? 'active' : '' }}">
+                                <i class="fas fa-caret-right nav-icon"></i>
+                                <p>Students List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('cbe.student-training.list') }}" class="nav-link {{ (request()->is('cbe/students/trainings/list') || request()->is('cbe/students/trainings*')) ? 'active' : '' }}">
+                                <i class="fas fa-caret-right nav-icon"></i>
+                                <p>Trainings</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item {{ (request()->is('cbe/assessment*')) ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ (request()->is('cbe/assessment*')) ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tasks"></i>
+                        <p>
+                            Assessments
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('cbe.assessment.supervisor.index') }}" class="nav-link {{ (request()->is('cbe/assessment/supervisor*')) ? 'active' : '' }}">
+                                <i class="fas fa-caret-right nav-icon"></i>
+                                <p>Supervisor Assessment</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('cbe.assessment.institution.index') }}" class="nav-link {{ (request()->is('cbe/assessment/institution*')) ? 'active' : '' }}">
+                                <i class="fas fa-caret-right nav-icon"></i>
+                                <p>Institution Assessment</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('cbe.questionnaire.view') }}" class="nav-link {{ (request()->is('cbe/questionnaire*')) ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-list-alt"></i>
+                        <p>Questionnaire</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('cbe.notice-board.index') }}" class="nav-link {{ (request()->is('cbe/notice-board*')) ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-list-alt"></i>
+                        <p>Notice Board</p>
+                    </a>
+                </li>
+                <li class="nav-item {{ (request()->is('cbe/setting*')) ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ (request()->is('cbe/setting*')) ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-wrench"></i>
+                        <p>
+                            Setting
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('cbe.training-type.list') }}" class="nav-link {{ (request()->is('cbe/setting/training-types*')) ? 'active' : '' }}">
+                                <i class="fas fa-caret-right nav-icon"></i>
+                                <p>Training Types</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>

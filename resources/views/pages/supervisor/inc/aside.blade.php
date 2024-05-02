@@ -38,34 +38,34 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-item {{ (request()->is('ssamplelink*')) ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ (request()->is('samplelink*')) ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('supervisor/training/list*') || request()->is('supervisor/training/assessment*')  ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ request()->is('supervisor/training/list*') || request()->is('supervisor/training/assessment*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Departments
+                            Trainings
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link {{ (request()->is('samplelink')) ? 'active' : '' }}">
+                            <a href="{{ route('supervisor.training.index') }}" class="nav-link {{ (request()->is('supervisor/training/list*')) ? 'active' : '' }}">
                                 <i class="fas fa-plus nav-icon"></i>
-                                <p>Add Department</p>
+                                <p>Assigned</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link {{ (request()->is('samplelink') || request()->is('school/department/view*') || request()->is('school/department/edit*')) ? 'active' : '' }}">
+                            <a href="{{ route('supervisor.training.assessment.index') }}" class="nav-link {{ request()->is('supervisor/training/assessment*') ? 'active' : '' }}">
                                 <i class="fas fa-list nav-icon"></i>
-                                <p>Departments List</p>
+                                <p>My Assessments</p>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link {{ (request()->is('samplelink*')) ? 'active' : '' }}">
+                    <a href="{{ route('supervisor.notice-board') }}" class="nav-link {{ (request()->is('supervisor/notice-board*')) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-briefcase"></i>
                         <p>
-                            Colleges
+                            Notice Board
                         </p>
                     </a>
                 </li>

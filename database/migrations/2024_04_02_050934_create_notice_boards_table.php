@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->integer('college_id');
             $table->string('title');
-            $table->longText('description');
-            $table->string('attachment');
-            $table->boolean('status');
+            $table->longText('description')->nullable();
+            $table->string('attachment')->nullable();
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

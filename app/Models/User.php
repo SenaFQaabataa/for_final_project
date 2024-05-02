@@ -59,7 +59,7 @@ class User extends Authenticatable
         return $this->hasOne(Supervisor::class);
     }
     public function Institution(){
-        return $this->belongsTo(Institution::class);
+        return $this->hasOne(Institution::class);
     }
 
     protected function type(): Attribute

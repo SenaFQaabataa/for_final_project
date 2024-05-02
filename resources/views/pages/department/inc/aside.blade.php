@@ -38,29 +38,6 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-item {{ (request()->is('ssamplelink*')) ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ (request()->is('samplelink*')) ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Dropdown Menu
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="nav-link {{ (request()->is('samplelink')) ? 'active' : '' }}">
-                                <i class="fas fa-plus nav-icon"></i>
-                                <p>Dropdown 1</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link {{ (request()->is('samplelink') || request()->is('school/department/view*') || request()->is('school/department/edit*')) ? 'active' : '' }}">
-                                <i class="fas fa-list nav-icon"></i>
-                                <p>Dropdown 2</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
 
                 <li class="nav-item {{ (request()->is('department/student*')) ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ (request()->is('department/student*')) ? 'active' : '' }}">
@@ -78,7 +55,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('department.student.add') }}" class="nav-link {{ (request()->is('samplelink') || request()->is('department/student/upload*') || request()->is('school/department/edit*')) ? 'active' : '' }}">
+                            <a href="{{ route('department.student.add') }}" class="nav-link {{ (request()->is('department/student/add*') || request()->is('department/student/upload*') || request()->is('school/department/edit*')) ? 'active' : '' }}">
                                 <i class="fas fa-list nav-icon"></i>
                                 <p>Upload Students</p>
                             </a>

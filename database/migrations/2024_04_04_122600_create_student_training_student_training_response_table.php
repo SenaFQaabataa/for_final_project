@@ -18,8 +18,8 @@ return new class extends Migration
             // Add other columns if needed
             $table->timestamps();
 
-            $table->foreign('student_training_id')->references('id')->on('student_trainings')->onDelete('cascade');
-            $table->foreign('student_training_response_id')->references('id')->on('student_training_responses')->onDelete('cascade');
+            // $table->foreign('student_training_id')->references('id')->on('student_trainings')->onDelete('cascade');
+            // $table->foreign('student_training_response_id')->references('id')->on('student_training_responses')->onDelete('cascade');
         });
     }
 

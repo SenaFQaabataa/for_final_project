@@ -33,42 +33,42 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="{{ route('cbe.home') }}" class="nav-link {{ (request()->is('samplelink')) ? 'active' : '' }}">
+                    <a href="{{ route('institution.home') }}" class="nav-link {{ (request()->is('samplelink')) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-item {{ (request()->is('ssamplelink*')) ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ (request()->is('samplelink*')) ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('institution/trainings/list*') || request()->is('institution/trainings/assessment*')  ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ request()->is('institution/training/list*') || request()->is('institution/trainings/assessment*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Departments
+                            Trainings
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link {{ (request()->is('samplelink')) ? 'active' : '' }}">
+                            <a href="{{ route('institution.training.index') }}" class="nav-link {{ (request()->is('institution/trainings/list*')) ? 'active' : '' }}">
                                 <i class="fas fa-plus nav-icon"></i>
-                                <p>Add Department</p>
+                                <p>Assigned</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link {{ (request()->is('samplelink') || request()->is('school/department/view*') || request()->is('school/department/edit*')) ? 'active' : '' }}">
+                            <a href="{{ route('institution.training.assessment.index') }}" class="nav-link {{ request()->is('institution/trainings/assessment*') ? 'active' : '' }}">
                                 <i class="fas fa-list nav-icon"></i>
-                                <p>Departments List</p>
+                                <p>My Assessments</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="" class="nav-link {{ (request()->is('samplelink*')) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-briefcase"></i>
                         <p>
                             Colleges
                         </p>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -1,4 +1,4 @@
-@extends('pages.cbe.inc.app')
+@extends('pages.department.inc.app')
 
 @section('header')
     @include('layout.header', ['title' => 'Department | Student | Add'])
